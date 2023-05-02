@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+class Student {
+    private String name;
+
+    public Student(Object obj) {
+        if (obj instanceof String) {
+            this.name = (String) obj;
+        } else {
+            this.name = "Unknown";
+        }
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input=new Scanner(System.in);
+        String name=input.nextLine();
+        Student s1 = new Student(name);
+        System.out.println(s1.getName());
+        Student s2 = new Student(33);
+        System.out.println(s2.getName());
+    }
+}

@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    
+    public static boolean canBePalindrome(String str) {
+        int left = 0, right = str.length() - 1;
+
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                // If we have already removed a character, return false
+                if (left + 1 == right) {
+                    return false;
+                }
+                // Try removing the character at the left index
+                if (str.charAt(left + 1) == str.charAt(right)) {
+                    left++;
+                }
+                // Try removing the character at the right index
+                else if (str.charAt(left) == str.charAt(right - 1)) {
+                    right--;
+                }
+                // If we cannot make a palindrome by removing one character, return false
+                else {
+                    return false;
+                }
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String str = "abcbea";
+        boolean result = canBePalindrome(str);
+        System.out.println(result); // Output: true
+    }
+
+}

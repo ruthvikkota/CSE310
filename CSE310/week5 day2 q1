@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+
+class Complex
+{
+    int a,b;
+    Complex()
+    {
+        a=0;
+        b=0;
+    }
+    Complex(int a,int b)
+    {
+        this.a=a;
+        this.b=b;
+    }
+    public void Mul_Complex(Complex c1, Complex c2) {
+        this.a = c1.a * c2.a - c1.b * c2.b;
+        this.b = c1.a * c2.b + c2.a * c1.b;
+    }
+
+    public void Display() {
+        System.out.println(this.a + "+" + this.b + "i");
+    }
+}
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input=new Scanner(System.in);
+         int real1 = input.nextInt();
+        int imaginary1 = input.nextInt();
+        Complex c1 = new Complex(real1, imaginary1);
+
+        int real2 = input.nextInt();
+        int imaginary2 = input.nextInt();
+        Complex c2 = new Complex(real2, imaginary2);
+        
+        Complex result = new Complex();
+        result.Mul_Complex(c1, c2);
+
+        result.Display();
+    }
+}

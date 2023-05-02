@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Solution 
+{
+    public static void main(String[] args) 
+    {
+        Scanner input = new Scanner(System.in);
+
+        int n=input.nextInt();
+        if (n<=0)
+        {
+            System.out.println("Invalid");
+            return;
+        }
+        else
+        {
+            String[] arr = new String[n];
+        for (int i = 0; i < n; i++) 
+        {
+            arr[i]=input.next();
+        }
+
+        int num_count = 0;
+        int alpha_count = 0;
+
+        for (String s : arr) 
+        {
+            if (s.matches("\\d+")) 
+            {
+                num_count++;
+            }
+            else if (s.matches("[a-zA-Z]+"))
+            {
+                alpha_count++;
+            }
+        }
+
+        System.out.println(num_count);
+        System.out.println(alpha_count);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class ReverseWords {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        
+        String str = sc.nextLine();
+
+        String[] words = str.split("\\s+");
+        StringBuilder sb = new StringBuilder();
+
+        for (String word : words) {
+            // Check if the word contains numbers
+            if (word.matches(".*\\d.*")) {
+                System.out.println("Invalid input");
+                return;
+            }
+            // Reverse the word and append to StringBuilder
+            sb.append(new StringBuilder(word.toLowerCase()).reverse().toString()).append(" ");
+        }
+
+        // Print the reversed string
+        System.out.println(sb.toString().trim());
+    }
+}

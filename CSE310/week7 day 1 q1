@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class TestEvaluation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // read the correct answers
+        String correctAnswers = scanner.nextLine().toUpperCase();
+
+        // read the number of students
+        int numStudents = scanner.nextInt();
+        scanner.nextLine(); // consume the newline character
+
+        // iterate over each student's answers
+        for (int i = 0; i < numStudents; i++) {
+            String studentAnswers = scanner.nextLine().toUpperCase();
+            if (studentAnswers.length() != correctAnswers.length()) {
+                System.out.println("Incorrect Input");
+                return;
+            }
+
+            double score = 0.0;
+            for (int j = 0; j < correctAnswers.length(); j++) {
+                char correct = correctAnswers.charAt(j);
+                char student = studentAnswers.charAt(j);
+                if (student == 'X') {
+                    continue;
+                } else if (student == correct) {
+                    score += 1.0;
+                } else {
+                    score -= 0.25;
+                }
+            }
+
+            System.out.print(score + " ");
+        }
+    }
+}

@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+enum time 
+{
+    Monday("8:30", "5:30"),
+    Tuesday("8:30", "5:30"),
+    Friday("8:30", "5:30"),
+    Saturday("9:30", "4:30");
+    String intime, outtime;
+    time(String intime, String outtime) 
+    {
+        this.intime = intime;
+        this.outtime = outtime;
+    }
+}
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String day = sc.nextLine();
+
+        time t = null;
+        try 
+        {
+            t = time.valueOf(day);
+        } 
+        catch (IllegalArgumentException e) 
+        {
+            System.out.println("Library is closed");
+        }
+
+        if (t != null) 
+        {
+            System.out.println(t.intime + " " + t.outtime);
+        }
+    }
+}

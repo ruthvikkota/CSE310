@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+class Employee
+    {
+        int Eid,Eage;
+        Employee(int id, int age)
+        {
+            Eid=id;
+            Eage=age;
+        }
+    }
+public class Solution 
+{
+    
+    public static void main(String[] args) 
+    {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+        int i;
+        if(n<0)
+        {
+            System.out.println("Invalid Input");
+        }
+        else
+        {
+            
+            for(i=0;i<n;i++)
+            {
+                int a =input.nextInt();
+                int b=input.nextInt();
+                Employee E=new Employee(a,b);
+                if((E.Eid<10 ||E.Eid>1000)&&(E.Eage<18||E.Eage>50))
+                {
+                    System.out.println("Invalid data");
+                }
+                if(E.Eage<30)
+                {
+                    System.out.println(E.Eid+" "+E.Eage);
+                }
+            }
+            
+        }
+        
+    }
+}
